@@ -12,13 +12,13 @@ import javax.swing.JOptionPane;
 
 public class Cadastro {
     
-    private Connection connection;
+    private  Connection connection;
     
     public Cadastro(){
             connection = SingleConnectionBanco.getConnection();
       }
     
-    public void adicionarProduto(Produto prd) throws SQLException{
+    public  void adicionarProduto(Produto prd) throws SQLException{
         
         try{
             System.out.println(prd.getNome());

@@ -1,8 +1,12 @@
 
 package javaapplication5;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import Connection.Cadastro;
 import javaapplication5.Produto;
 
 public class Menu extends Produto {
@@ -12,7 +16,7 @@ public static  Produto [] produto = new Produto[10];
 public static Scanner scan = new Scanner(System.in);
 public static ArrayList <Produto> proList = new ArrayList<Produto>();
     
-    public static void main(String[] args)  {
+    public static void main(String[] args) throws SQLException  {
         
     Scanner scan = new Scanner(System.in);
     int op = 0;
@@ -81,7 +85,7 @@ public static ArrayList <Produto> proList = new ArrayList<Produto>();
     }
      
     //************************************MENU CADASTRO*******************************
-    static void TELA_10(){
+    static void TELA_10() throws SQLException{
         int op =0;
         System.out.println("CADASTRO DE PRODUTOS");     
         System.out.println("1 - INCLUSÃO");
@@ -110,7 +114,7 @@ public static ArrayList <Produto> proList = new ArrayList<Produto>();
     }
     
     //***********************************************INCLUSÃO***************************************************************
-    static void TELA_111(){
+    static void TELA_111() throws SQLException{
  
         String op = null;
         System.out.println("INCLUSÃO DE PRODUTO");
@@ -123,7 +127,10 @@ public static ArrayList <Produto> proList = new ArrayList<Produto>();
             MENU_PRINCIPAL();
         }else if(op.equals("s") || op.equals("S")){
            System.out.println("PRODUTO CADASTRADO COM SUCESSO !");
+          Cadastro cadastro = new Cadastro();
+          cadastro.adicionarProduto(produto[ContPro]);
         }
+       
        ContPro++;
        
         System.out.println("REPETIR OPERAÇÃO (S/N)");
